@@ -1,5 +1,5 @@
-INSERT INTO [USER] (UserID, FirstName, LastName, Email, Phone, Password, Address, City, PostalCode)
-VALUES (1, 'Nguyen', 'Van Manh', 'elroydevops@gmail.com', '0900000009', '0900000009', 'Ha Noi', 'Ha Noi', '000084');
+INSERT INTO [USER] (FirstName, LastName, Email, Phone, Password, Address, City, PostalCode)
+VALUES ('Nguyen', 'Van Manh', 'elroydevops@gmail.com', '0900000009', '0900000009', 'Ha Noi', 'Ha Noi', '000084');
 
 -- Thêm dữ liệu vào bảng PRODUCT
 INSERT INTO PRODUCT (ProductID, Name, Brand, Description, ImageURL)
