@@ -96,8 +96,8 @@ namespace backend.Repositories
         public bool Add(User user)
         {
             string query = @"INSERT INTO dbo.[USER] 
-                             (FirstName, LastName, Email, Phone, Password, Address, City, PostalCode) 
-                             VALUES (@FirstName, @LastName, @Email, @Phone, @Password, @Address, @City, @PostalCode)";
+                     (UserID,FirstName, LastName, Email, Phone, Password, Address, City, PostalCode) 
+                     VALUES (@UserID,@FirstName, @LastName, @Email, @Phone, @Password, @Address, @City, @PostalCode)";
 
             try
             {
@@ -106,22 +106,24 @@ namespace backend.Repositories
                     myCon.Open();
                     using (SqlCommand myCommand = new SqlCommand(query, myCon))
                     {
-                        myCommand.Parameters.AddWithValue("@FirstName", user.FirstName);
-                        myCommand.Parameters.AddWithValue("@LastName", user.LastName);
-                        myCommand.Parameters.AddWithValue("@Email", user.Email);
-                        myCommand.Parameters.AddWithValue("@Phone", user.Phone);
-                        myCommand.Parameters.AddWithValue("@Password", user.Password);
-                        myCommand.Parameters.AddWithValue("@Address", user.Address);
-                        myCommand.Parameters.AddWithValue("@City", user.City);
-                        myCommand.Parameters.AddWithValue("@PostalCode", user.PostalCode);
+                        myCommand.Parameters.Add(new SqlParameter("@UserID", SqlDbType.NVarChar) { Value = user.UserID });
+                        myCommand.Parameters.Add(new SqlParameter("@FirstName", SqlDbType.NVarChar) { Value = user.FirstName });
+                        myCommand.Parameters.Add(new SqlParameter("@LastName", SqlDbType.NVarChar) { Value = user.LastName });
+                        myCommand.Parameters.Add(new SqlParameter("@Email", SqlDbType.NVarChar) { Value = user.Email });
+                        myCommand.Parameters.Add(new SqlParameter("@Phone", SqlDbType.NVarChar) { Value = user.Phone });
+                        myCommand.Parameters.Add(new SqlParameter("@Password", SqlDbType.NVarChar) { Value = user.Password });
+                        myCommand.Parameters.Add(new SqlParameter("@Address", SqlDbType.NVarChar) { Value = user.Address });
+                        myCommand.Parameters.Add(new SqlParameter("@City", SqlDbType.NVarChar) { Value = user.City });
+                        myCommand.Parameters.Add(new SqlParameter("@PostalCode", SqlDbType.NVarChar) { Value = user.PostalCode });
+
                         myCommand.ExecuteNonQuery();
-                        myCon.Close();
                     }
                 }
                 return true;
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"Error adding user: {ex.Message}");
                 return false;
             }
         }
