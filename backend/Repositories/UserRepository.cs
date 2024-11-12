@@ -96,8 +96,8 @@ namespace backend.Repositories
         public bool Add(User user)
         {
             string query = @"INSERT INTO dbo.[USER] 
-                     (UserID,FirstName, LastName, Email, Phone, Password, Address, City, PostalCode) 
-                     VALUES (@UserID,@FirstName, @LastName, @Email, @Phone, @Password, @Address, @City, @PostalCode)";
+                     (FirstName, LastName, Email, Phone, Password, Address, City, PostalCode) 
+                     VALUES (@FirstName, @LastName, @Email, @Phone, @Password, @Address, @City, @PostalCode)";
 
             try
             {
@@ -106,7 +106,6 @@ namespace backend.Repositories
                     myCon.Open();
                     using (SqlCommand myCommand = new SqlCommand(query, myCon))
                     {
-                        myCommand.Parameters.Add(new SqlParameter("@UserID", SqlDbType.NVarChar) { Value = user.UserID });
                         myCommand.Parameters.Add(new SqlParameter("@FirstName", SqlDbType.NVarChar) { Value = user.FirstName });
                         myCommand.Parameters.Add(new SqlParameter("@LastName", SqlDbType.NVarChar) { Value = user.LastName });
                         myCommand.Parameters.Add(new SqlParameter("@Email", SqlDbType.NVarChar) { Value = user.Email });

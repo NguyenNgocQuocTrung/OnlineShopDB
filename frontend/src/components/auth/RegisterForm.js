@@ -1,16 +1,19 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import createUser from '../../services/userService';
+
+import { variables } from "../../utils/api/variables.js";
+import axios from 'axios';
 
 function Register() {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async (registerData) => {
     try {
-      const response = await createUser(registerData);
-      console.log(response);
+      const API_URL = variables.USER_API
+        const response = await axios.post(API_URL, registerData);
+        return response.data;
     } catch (error) {
-      alert('Error registering user');
+      alert(error);
     }
   };
   
