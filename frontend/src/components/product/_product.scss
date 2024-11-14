@@ -128,3 +128,30 @@
         margin-top: 1rem;
     }
 }
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.pagination button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.pagination button.disabled {
+    background-color: #cccccc;
+    /* Gray color for disabled button */
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-weight: bold;
+}
