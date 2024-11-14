@@ -51,8 +51,8 @@ function Register() {
                   message: "Must be at most 100 characters",
                 },
                 pattern: {
-                  value: /^[A-Za-z]+$/,
-                  message: "Only alphabetic characters allowed",
+                  value: /^[A-Za-zÀ-ỹ\s]+$/u,
+                  message: "Only characters and spaces are allowed",
                 },
               })}
             />
@@ -75,8 +75,8 @@ function Register() {
                   message: "Must be at most 100 characters",
                 },
                 pattern: {
-                  value: /^[A-Za-z]+$/,
-                  message: "Only alphabetic characters allowed",
+                  value: /^[A-Za-zÀ-ỹ\s]+$/u,
+                  message: "Only characters and spaces are allowed",
                 },
               })}
             />
@@ -119,12 +119,13 @@ function Register() {
               {...register("phone", {
                 required: "Phone number is required",
                 maxLength: {
-                  value: 20,
-                  message: "Must be at most 20 characters",
+                  value: 11,
+                  message: "Must be at most 11 characters",
                 },
                 pattern: {
-                  value: /^\+[1-9]{1}[0-9]{3,14}$/,
-                  message: "Must start with + followed by 4-15 digits",
+                  value: /^0[1-9][0-9]{8,9}$/,
+                  message:
+                    "Phone number must start with 0 and contain 10-11 digits",
                 },
               })}
             />
