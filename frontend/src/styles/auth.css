@@ -1,0 +1,41 @@
+.tab-navigation {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.tab {
+    text-decoration: none;
+    color: #555;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.1s ease;
+    border-radius: 4px;
+    /* Optional: rounded corners */
+}
+
+/* Hover effect */
+.tab:hover {
+    color: #007bff;
+    /* Light blue color on hover */
+    background-color: #f0f8ff;
+    /* Optional: light background on hover */
+}
+
+/* Active (mouse press) effect */
+.tab:active {
+    transform: scale(0.95);
+    /* Slightly shrink on press */
+    color: #0056b3;
+    /* Darker blue on press */
+}
+
+/* Active tab indicator */
+.tab.active {
+    font-weight: bold;
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    /* Visual indicator for the active tab */
+}

@@ -41,6 +41,29 @@
     max-width: none;
     }
 }
+.svg-inline--fa{
+    transition: color 0.1s ease, font-size 0.2s ease;
+         &:hover {
+           color: $color-blue;
+            cursor: pointer;
+        }
+}
+
+.product-card {
+    transition: color 0.1s ease, font-size 0.2s ease;
+
+    &:hover {
+        width: 101%;
+        .product-img{
+            transition: color 0.1s ease, font-size 0.2s ease;
+            background-color: lightblue;
+            color: lightblue;
+        }
+        background-color: lightblue;
+        color: lightblue;
+    }
+}
+
 
 .product-img{
     height: 250px;

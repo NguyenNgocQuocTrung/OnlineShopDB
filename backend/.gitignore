@@ -52,6 +52,9 @@ dkms.conf
 # Redis cache
 *.rdb
 
-.vs/
-obj/
-bin/
+.vs
+obj
+bin
+
+
+
