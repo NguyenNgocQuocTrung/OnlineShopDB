@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { variables } from "../../utils/api/variables.js";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
@@ -20,13 +21,17 @@ function Register() {
     formState: { errors },
     watch,
   } = useForm();
+  const navigate = useNavigate(); // Khởi tạo điều hướng
   const password = watch("password");
 
   const onSubmit = async (registerData) => {
     try {
       const API_URL = variables.USER_API;
-      const response = await axios.post(API_URL, registerData);
-      alert("Registration successful: " + response.data);
+      await axios.post(API_URL, registerData);
+
+      alert("Registration successfully");
+
+     navigate("/account");
     } catch (error) {
       alert(error.response?.data?.message || error.message);
     }
@@ -91,7 +96,7 @@ function Register() {
             <FontAwesomeIcon icon={faEnvelope} />
             <input
               className="input-field"
-              type="email"
+              type="text"
               {...register("email", {
                 required: "Email is required",
                 maxLength: {
@@ -209,13 +214,18 @@ function Register() {
               className="input-field"
               type="text"
               {...register("postalCode", {
+                minLength: {
+                  value: 3,
+                  message: "Must be at least 3 characters",
+                },
                 maxLength: {
-                  value: 20,
-                  message: "Must be at most 20 characters",
+                  value: 10,
+                  message: "Must be at most 10 characters",
                 },
                 pattern: {
                   value: /^[A-Za-z0-9 ]{3,10}$/,
-                  message: "Invalid postal code",
+                  message:
+                    "Invalid postal code. Only letters, numbers, and spaces are allowed.",
                 },
               })}
             />

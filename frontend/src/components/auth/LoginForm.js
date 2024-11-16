@@ -30,8 +30,10 @@ function Login() {
         // Redirect to the "account" page if login is successful
         navigate("/account");
       } else {
+        alert("Invalid email or password.");
         // Set a general login error message if login fails
         setLoginError("Invalid email or password.");
+        setLoginError("");
       }
     } catch (error) {
       // Handle error (e.g., network error)
@@ -46,7 +48,7 @@ function Login() {
       <h1>Login</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* Display login error */}
-        {loginError && <div className="error-message">{loginError}</div>}
+        {/* {loginError && <div className="error-message">{loginError}</div>} */}
 
         {/* Email Field */}
         <label className="input-label">
@@ -55,7 +57,7 @@ function Login() {
             <FontAwesomeIcon icon={icons.email} />
             <input
               className="input-field"
-              type="email"
+              type="text"
               {...register("email", {
                 required: "Email is required",
                 pattern: {

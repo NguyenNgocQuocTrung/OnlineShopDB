@@ -1,0 +1,5 @@
+BASE_URL = "https://ktpm.nguyenngocquoctrung.id.vn"
+LOGIN_ENDPOINT = "/authentication"
+REGISTER_ENDPOINT = "/authentication"
+ACCOUNT_ENDPOINT = "/account"
+BROWSER = "edge"
