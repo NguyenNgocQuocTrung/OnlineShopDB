@@ -55,21 +55,18 @@ class ElementsPath:
             INPUT = "//*[@id=\"root\"]/div[1]/div[1]/div/form/label[2]/div/input"
         class EMAIL:
             class ERROR:
-                PATH = ""  # Đường dẫn XPath hoặc CSS Selector cho trường Email
                 REQUIRED_TEXT = "Email is required"
                 MAX_LENGTH = "Must be at most 255 characters"
                 INVALID = "Invalid email address"
             INPUT = "//*[@id='root']/div[1]/div[1]/div/form/label[3]/div/input"
         class PHONE:
             class ERROR:
-                PATH = ""  # Đường dẫn XPath hoặc CSS Selector cho trường Phone
                 REQUIRED_TEXT = "Phone number is required"
                 MAX_LENGTH = "Must be at most 11 characters"
                 INVALID = "Phone number must start with 0 and contain 10-11 digits"
             INPUT = "//*[@id='root']/div[1]/div[1]/div/form/label[4]/div/input"
         class PASSWORD:
             class ERROR:
-                PATH = ""  # Đường dẫn XPath hoặc CSS Selector cho trường Password
                 REQUIRED_TEXT = "Password is required"
                 MAX_LENGTH = "Must be at most 255 characters"
                 MIN_LENGTH = "Must be at least 8 characters"
@@ -77,7 +74,6 @@ class ElementsPath:
             INPUT = "//*[@id='root']/div[1]/div[1]/div/form/label[5]/div/input"
         class ADDRESS:
             class ERROR:
-                PATH = ""  # Đường dẫn XPath hoặc CSS Selector cho trường Address
                 MAX_LENGTH = "Must be at most 255 characters"
             INPUT = "//*[@id='root']/div[1]/div[1]/div/form/label[6]/div/input"
         class CITY:
