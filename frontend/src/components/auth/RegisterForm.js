@@ -1,12 +1,17 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-
+import createUser from '../../services/userService';
 
 function Register() {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async (registerData) => {
-    console.log(registerData)
+    try {
+      const response = await createUser(registerData);
+      console.log(response);
+    } catch (error) {
+      alert('Error registering user');
+    }
   };
   
   return (
