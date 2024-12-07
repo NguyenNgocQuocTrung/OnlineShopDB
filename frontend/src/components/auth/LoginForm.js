@@ -27,13 +27,15 @@ function Login() {
       const user = await login(loginData);
 
       if (user) {
+        
+        alert("Invalid email or password.");
         // Redirect to the "account" page if login is successful
         navigate("/account");
+        
       } else {
         alert("Invalid email or password.");
         // Set a general login error message if login fails
         setLoginError("Invalid email or password.");
-        setLoginError("");
       }
     } catch (error) {
       // Handle error (e.g., network error)
