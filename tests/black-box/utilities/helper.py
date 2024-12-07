@@ -27,6 +27,7 @@ def random_string_with_space(length):
     return ''.join(random.choice(characters) for _ in range(length))
 
 
+
 #region: Assertions 
 def assert_alert_text_equals(driver, text):
     time.sleep(0.1)

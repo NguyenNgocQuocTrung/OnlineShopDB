@@ -94,6 +94,9 @@ class ElementsPath:
         REGISTER_SUCCESS_TEXT = "Registration successfully"
         REGISTER_BUTTON = "//*[@id='root']/div[1]/div[1]/div/form/button"
         REDIRECT_LOGIN = "//*[@id='root']/div[1]/div[2]/a[1]"
+    
+    
+        
 
     def __init__(self, driver):
         self.driver = driver
