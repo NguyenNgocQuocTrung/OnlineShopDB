@@ -1,7 +1,6 @@
 from constants.elements_path import ElementsPath
 
 class LoginPage:
-
     def __init__(self, driver):
         self.driver = driver
         self.root = ElementsPath(driver)
@@ -22,7 +21,6 @@ class LoginPage:
         self.root.click(ElementsPath.LOGIN.REDIRECT_REGISTER)
 
 class RegisterPage:
-
     def __init__(self, driver):
         self.driver = driver
         self.root = ElementsPath(driver)
