@@ -1,5 +1,6 @@
 import time
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
 
 class ElementsPath:
     class NAVIGATION:
@@ -8,7 +9,7 @@ class ElementsPath:
         ABOUT_US = "//*[@id=\"root\"]/nav/div[2]/ul/li[3]/a"
         USER = '//*[@id=\"root\"]/nav/div[2]/div/a[1]'
         WISHLIST = "//*[@id='root']/nav/div[2]/div/a[2]/div/svg/path"
-        CART = "//*[@id='root']/nav/div[2]/div/a[3]/div/svg/path"
+        CART = "//*[@id='root']/nav/div[2]/div/a[3]/div"
         INDEX = "//*[@id='root']/nav/div[2]/a"
     
     class LOGIN:
@@ -101,7 +102,54 @@ class ElementsPath:
         REGISTER_BUTTON = "//*[@id='root']/div[1]/div[1]/div/form/button"
         REDIRECT_LOGIN = "//*[@id='root']/div[1]/div[2]/a[1]"
     
+    class MINI_CART:
+        NO_ITEM = "//*[@id='root']/nav/div[2]/div/a[3]/div/span"
+
+    class SHOP:
+        class ITEMS:
+            class ITEM:
+                class SIZES:
+                    SIZES = "//*[@id='size-select']//option"
+                
+                SIZES_SELECTOR = "//select[@id='size-select']"
+                NAME = "//*[@id='root']/div[1]/div[2]/h1"
+                ADD_TO_BASKET = "//*[@id='root']/div[1]/div[2]/div[2]/button[1]"
+            
+            ITEMS_PATH = "//*[@id='root']/div[1]/div[2]//div"
+                
+        class BUTTONS:
+            NEXT_BUTTON = "//*[@id='root']/div[1]/div[3]/button[2]"
+            PREVIOUS_BUTTON = "//*[@id='root']/div[1]/div[3]/button[2]"
     
+    class CART:
+        class CART_ITEMS:
+            TITLE = "//*[@id='root']/div[1]/div[1]/h1"
+            ITEM_LIST = "//*[@id='root']/div[1]/div[1]/div"
+            CLEAR_CART = "//*[@id='root']/div[1]/div[1]/div/a"
+
+            class ITEM:
+                REMOVE = "//*[@id='root']/div[1]/div[1]/div/div[1]/div/div[1]/a[2]"
+                NAME = "//div[@class='cart-item-left']//a/p"
+                PRICE = "//div[@class='cart-item-right']/p"
+                QUANTITY = "//*[@id='root']/div[1]/div[1]/div/div/div/div[2]/div/input"
+                DECREASE = "//div[@class='cart-item']//div[@class='cart-item-quantity']/a[1]"
+                INCREASE = "//div[@class='cart-item']//div[@class='cart-item-quantity']/a[2]"
+            
+
+        class DISCOUNT:
+            DISCOUNT_INPUT = "//div[@class='discount-code']/input"
+            APPLY_BUTTON = "//div[@class='discount-code']/button"
+        
+        class SUMMARY:
+            SUBTOTAL = "//*[@id='root']/div[1]/div[2]/div/div[1]/p[2]"
+            DISCOUNT = "//*[@id='root']/div[1]/div[2]/div/div[2]/p[2]"
+            TOTAL    = "//*[@id='root']/div[1]/div[2]/div/div[5]/p[2]"
+            CHECKOUT = "//*[@id='root']/div[1]/div[2]/div[1]/a/button"
+              
+        class IS_EMPTY:
+            TEXT_PATH = "//*[@id='root']/div[1]/div/p"
+            TEXT = "There’s nothing in your bag yet."
+
         
 
     def __init__(self, driver):
@@ -119,9 +167,26 @@ class ElementsPath:
     def text(self, path):
         return self.element(path).text
     
+    def select_by_visible_text(self, path, name):
+        select = Select(self.element(path))
+        select.select_by_visible_text(name)
+
+    def select_by_value(self, path, value):
+        select = Select(self.element(path))
+        select.select_by_value(value)
+    
+    def select_by_index(self, path, value):
+        select = Select(self.element(path))
+        select.select_by_index(value)
+        
     def click(self, path):
         self.sleep()
         self.element(path).click()
+        self.sleep()
+
+    def click_from_elements(self, path, element_no = 1):
+        self.sleep()
+        self.element(f'{path}{[element_no]}').click()
         self.sleep()
 
     def input(self, path, keys):

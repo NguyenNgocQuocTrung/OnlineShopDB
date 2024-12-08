@@ -16,6 +16,7 @@ class LoginPage:
 
     def click_login(self):
         self.root.click(ElementsPath.LOGIN.LOGIN_BUTTON)
+        self.root.sleep(0.6)
     
     def click_redirect_register(self):
         self.root.click(ElementsPath.LOGIN.REDIRECT_REGISTER)

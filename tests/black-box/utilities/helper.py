@@ -50,3 +50,8 @@ def assert_error_messsages_equals( root, expected_messages):
 def assert_text_in_src_page(driver,txt):
     time.sleep(0.1)
     assert txt in driver.page_source
+
+def assert_text_in_message(root, root_element, text):
+    time.sleep(0.1)
+    message = root.get_text(root_element)
+    assert text in message
