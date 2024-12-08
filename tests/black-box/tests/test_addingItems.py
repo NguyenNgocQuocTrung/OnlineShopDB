@@ -167,7 +167,7 @@ class TestAdding:
         
         assert False not in [str(item).lower() in list_of_item_names for item in list(item_list.values())]
 
-    #cái này ngẫu nhiên thôi, add mà cùng size giày thì fail
+    #add mà cùng size giày thì fail
     def test_check_cart_after_add_multi_items(self, setup):
         item_list = {}
         no_items = hp.random_number_in_range(2, 4) #lấy khoản 2 - 4 item
@@ -222,7 +222,6 @@ class TestAdding:
             assert False not in [str(item).lower() in list_of_item_names for item in list(item_list.values())]
 
     # ===================== Xe hàng =====================#
-    #vì xe hàng cần có sản phẩm nên cho chung file với adding luôn
     def test_cart_summary(self, setup):
         #Thêm sản phẩm
         self.test_add_multi_random_item(setup)
