@@ -1,7 +1,5 @@
 import time
 
-from selenium.webdriver.common.by import By
-
 from ktpm_selenium.selenium.utils.webdriver_setup import Driver
 from ktpm_selenium.selenium.pages_derection.shopping_cart_page import ShoppingCartPage
 from ktpm_selenium.selenium.pages_derection.check_out import CheckOutPage

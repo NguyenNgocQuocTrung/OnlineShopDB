@@ -1,6 +1,0 @@
-from ktpm_selenium.selenium.pages_derection.login_page import LoginPage
-from ktpm_selenium.selenium.pages_derection.home_page import HomePage
-from ktpm_selenium.selenium.pages_derection.shopping_cart_page import ShoppingCartPage
-from ktpm_selenium.selenium.pages_derection.search_product import SearchProducts
-from ktpm_selenium.selenium.pages_derection.product_page import ProductPage
-from ktpm_selenium.selenium.pages_derection.check_out import CheckOutPage

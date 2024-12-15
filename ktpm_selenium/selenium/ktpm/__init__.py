@@ -1,2 +1,0 @@
-from ktpm_selenium.selenium.ktpm.test_login import TestLogin
-from ktpm_selenium.selenium.ktpm.test_payment_gateway import TestPaymentGateway_Credit_or_Debit
