@@ -86,7 +86,7 @@ class CheckOutPage:
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
         time.sleep(1)
 
-    #chose paypal in 3000/checkout
+    # chose paypal in 3000/checkout
     def chose_paypal(self):
         time.sleep(10)
         iframe_elements = self.driver.find_elements(By.TAG_NAME, "iframe")
@@ -260,7 +260,8 @@ class CheckOutPage:
 
     def chose_visa(self):
         time.sleep(2)
-        self.scroll_to_element(self.driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div[1]/main/div[2]/section[1]/div[4]/div[3]/div/div[1]/div[1]/div/label/span"))
+        self.scroll_to_element(self.driver.find_element(By.XPATH,
+                                                        "/html/body/div[2]/div/div/div[1]/main/div[2]/section[1]/div[4]/div[3]/div/div[1]/div[1]/div/label/span"))
         self.driver.find_element(By.XPATH,
                                  "/html/body/div[2]/div/div/div[1]/main/div[2]/section[1]/div[4]/div[3]/div/div[1]/div[1]/div/label/span").click()
         time.sleep(2)
@@ -269,51 +270,60 @@ class CheckOutPage:
 
     def chose_paypal_credit(self):
         time.sleep(2)
-        self.scroll_to_element(self.driver.find_element(By.XPATH, "//main/div[2]/section[1]/div[4]/div[4]/div[1]/div/label/span/span"))
+        self.scroll_to_element(
+            self.driver.find_element(By.XPATH, "//main/div[2]/section[1]/div[4]/div[4]/div[1]/div/label/span/span"))
         self.driver.find_element(By.XPATH, "//main/div[2]/section[1]/div[4]/div[4]/div[1]/div/label/span/span").click()
         time.sleep(2)
         self.driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div[1]/main/div[3]/div[2]/button").click()
         time.sleep(2)
-        self.driver.find_element(By.XPATH, "/html/body/div[2]/div/div[2]/article/section/div/div/main/div/div/form/div[2]/div/div/div/button").click()
+        self.driver.find_element(By.XPATH,
+                                 "/html/body/div[2]/div/div[2]/article/section/div/div/main/div/div/form/div[2]/div/div/div/button").click()
         time.sleep(2)
         self.driver.find_element(By.XPATH,
                                  "/html/body/div[3]/div/div[2]/article/section/div/div/div[2]/div[2]/div/button[1]").click()
         time.sleep(2)
-        #number
-        self.driver.find_element(By.XPATH, "/html/body/div[2]/div/div[2]/article/section/div/div/main/div/div/form/div[1]/div[2]/div[2]/div[2]/div/div/input").send_keys("(914) 465-0305")
-        time.sleep(2)
-        #date of birth
+        # number
         self.driver.find_element(By.XPATH,
-                                 "/html/body/div[2]/div/div[2]/article/section/div/div/main/div/div/form/div[1]/div[2]/div[4]/div/div/input").send_keys("11 11 1999")
+                                 "/html/body/div[2]/div/div[2]/article/section/div/div/main/div/div/form/div[1]/div[2]/div[2]/div[2]/div/div/input").send_keys(
+            "(914) 465-0305")
+        time.sleep(2)
+        # date of birth
+        self.driver.find_element(By.XPATH,
+                                 "/html/body/div[2]/div/div[2]/article/section/div/div/main/div/div/form/div[1]/div[2]/div[4]/div/div/input").send_keys(
+            "11 11 1999")
         time.sleep(2)
         # SSN last 4
         self.driver.find_element(By.XPATH,
-                                 "/html/body/div[2]/div/div[2]/article/section/div/div/main/div/div/form/div[1]/div[2]/div[5]/div/div/input").send_keys("1111")
+                                 "/html/body/div[2]/div/div[2]/article/section/div/div/main/div/div/form/div[1]/div[2]/div[5]/div/div/input").send_keys(
+            "1111")
         time.sleep(2)
-        #annual income after taxes
+        # annual income after taxes
         self.driver.find_element(By.XPATH,
-                                 "/html/body/div[2]/div/div[2]/article/section/div/div/main/div/div/form/div[1]/div[2]/div[6]/div/div/div[1]/input").send_keys("100000")
+                                 "/html/body/div[2]/div/div[2]/article/section/div/div/main/div/div/form/div[1]/div[2]/div[6]/div/div/div[1]/input").send_keys(
+            "100000")
         time.sleep(2)
-        #confirm
-        self.driver.find_element(By.XPATH, "/html/body/div[2]/div/div[2]/article/section/div/div/main/div/div/form/div[2]/div/div/div/button").click()
+        # confirm
+        self.driver.find_element(By.XPATH,
+                                 "/html/body/div[2]/div/div[2]/article/section/div/div/main/div/div/form/div[2]/div/div/div/button").click()
 
-        #accept terms and conditions
+        # accept terms and conditions
         self.driver.find_element(By.XPATH,
                                  "/html/body/div[2]/div/div[2]/article/section/div/div/main/div/div/div[2]/div/div/div[2]/button").click()
         time.sleep(2)
 
-        #Agree
+        # Agree
         self.driver.find_element(By.XPATH,
                                  "/html/body/div[3]/div/div[2]/article/footer/div/div/button").click()
         time.sleep(2)
-        #return to check out
+        # return to check out
         self.driver.find_element(By.XPATH,
                                  "/html/body/div[2]/div/div[2]/article/section/div/div/main/div/div[2]/div/div/div/button").click()
         time.sleep(2)
 
-        #complete payment
-        self.driver.find_element(By.XPATH,"/html/body/div[2]/div/div/div/main/div[4]/div[2]/button").click()
+        # complete payment
+        self.driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div/main/div[4]/div[2]/button").click()
         time.sleep(2)
+
     def pay_with_debit_credit_card(self, card_number, expiry_date, cvv, first_name, last_name, address, apt, city,
                                    zip_code, phone, email):
         # Tìm và chuyển vào iframe nếu cần
@@ -488,8 +498,10 @@ class CheckOutPage:
         self.scroll_to_element(self.driver.find_element(By.TAG_NAME, "iframe"))
         iframe = self.driver.find_element(By.TAG_NAME, "iframe")  # Thay đổi selector nếu cần
         self.driver.switch_to.frame(iframe)
-        self.scroll_to_element(self.driver.find_element(By.XPATH, "/html/body/div[1]/div/div/form/div/div[2]/div/div[1]/div/div/div/input"))
-        input_element = self.driver.find_element(By.XPATH, "/html/body/div[1]/div/div/form/div/div[2]/div/div[1]/div/div/div/input").click
+        self.scroll_to_element(self.driver.find_element(By.XPATH,
+                                                        "/html/body/div[1]/div/div/form/div/div[2]/div/div[1]/div/div/div/input"))
+        input_element = self.driver.find_element(By.XPATH,
+                                                 "/html/body/div[1]/div/div/form/div/div[2]/div/div[1]/div/div/div/input").click
 
         # Lấy giá trị của thuộc tính aria-describedby (đây là ID của phần tử lỗi)
         error_message_id = input_element.get_attribute("aria-describedby")
@@ -521,15 +533,149 @@ class CheckOutPage:
         time.sleep(2)
 
     def add_debit_credit_card_paypal(self):
-        self.scroll_to_element(self.driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div/main/div[2]/div/div/button"))
+        self.scroll_to_element(
+            self.driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div/main/div[2]/div/div/button"))
         self.driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div/main/div[2]/div/div/button").click()
         time.sleep(2)
-        self.driver.find_element(By.XPATH, "/html/body/div[4]/div[1]/section/div/div[2]/form/div/div[2]/div[3]/div/div[1]/input").send_keys("4111 1111 1111 1111")
+        self.driver.find_element(By.XPATH,
+                                 "/html/body/div[4]/div[1]/section/div/div[2]/form/div/div[2]/div[3]/div/div[1]/input").send_keys(
+            "4111 1111 1111 1111")
         time.sleep(2)
-        self.driver.find_element(By.XPATH, "/html/body/div[4]/div[1]/section/div/div[2]/form/div/div[2]/div[3]/div/div[2]/div[1]/input").send_keys("01 25")
+        self.driver.find_element(By.XPATH,
+                                 "/html/body/div[4]/div[1]/section/div/div[2]/form/div/div[2]/div[3]/div/div[2]/div[1]/input").send_keys(
+            "01 25")
         time.sleep(2)
-        self.driver.find_element(By.XPATH, "/html/body/div[4]/div[1]/section/div/div[2]/form/div/div[2]/div[3]/div/div[2]/div[2]/input").send_keys("123")
+        self.driver.find_element(By.XPATH,
+                                 "/html/body/div[4]/div[1]/section/div/div[2]/form/div/div[2]/div[3]/div/div[2]/div[2]/input").send_keys(
+            "123")
         time.sleep(2)
         self.driver.find_element(By.XPATH, "/html/body/div[4]/div[1]/section/div/div[2]/form/div/button").click()
         time.sleep(2)
         self.driver.find_element(By.XPATH, "/html/body/div[2]/div/div/div/main/div[4]/div[2]/button").click()
+
+    def error(self):
+        # Chuyển vào iframe đầu tiên
+        iframe_1 = self.driver.find_element(By.CLASS_NAME, "component-frame")
+        self.driver.switch_to.frame(iframe_1)
+
+        # Chuyển vào iframe thứ hai
+        iframe_2 = self.driver.find_element(By.CLASS_NAME, "zoid-visible")
+        self.driver.switch_to.frame(iframe_2)
+
+        # Chờ và kiểm tra icon lỗi trong iframe thứ hai
+        error_icon = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.CLASS_NAME, "css-wjdwzz"))
+        )
+
+        # Trả về giá trị boolean (True nếu icon lỗi hiển thị, False nếu không)
+        return error_icon.is_displayed()
+
+    # def error_icon(self):
+    #     # Danh sách các XPath của các icon lỗi
+    #     error_icons_xpath = [
+    #         "/html/body/div[1]/div/div/form/div/div[2]/div/div[2]/div",  # XPath icon cardnumber
+    #         "/html/body/div[1]/div/div/form/div/div[3]/div[1]/div[2]/div",  # XPath icon expiration date
+    #         "/html/body/div[1]/div/div/form/div/div[3]/div[3]/div[2]/div",  # XPath icon security code
+    #         "/html/body/div[1]/div/div/form/div/div[4]/div[2]/div[2]/div[2]/div",  # XPath icon firstname
+    #         "/html/body/div[1]/div/div/form/div/div[4]/div[2]/div[4]/div[2]/div",  # XPath icon lastname
+    #         "/html/body/div[1]/div/div/form/div/div[4]/div[3]/div[1]/div/div[2]/div",  # XPath icon street address
+    #         "/html/body/div[1]/div/div/form/div/div[4]/div[3]/div[3]/div/div[2]/div",  # XPath icon city
+    #         "/html/body/div[1]/div/div/form/div/div[4]/div[3]/div[5]/div/div[2]/div",  # XPath icon zip code
+    #         "/html/body/div[1]/div/div/form/div/div[5]/div/div[2]/div",  # XPath icon mobile
+    #         "/html/body/div[1]/div/div/form/div/div[6]/div/div[2]/div"  # XPath icon email
+    #         # Bạn có thể thêm các XPath khác vào danh sách này
+    #     ]
+    #
+    #     # Chuyển vào iframe đầu tiên
+    #     iframe_1 = self.driver.find_element(By.CLASS_NAME, "component-frame")
+    #     self.driver.switch_to.frame(iframe_1)
+    #
+    #     # Chuyển vào iframe thứ hai
+    #     iframe_2 = self.driver.find_element(By.CLASS_NAME, "zoid-visible")
+    #     self.driver.switch_to.frame(iframe_2)
+    #
+    #     # Danh sách chứa kết quả kiểm tra các icon lỗi
+    #     error_results = []
+    #
+    #     # Duyệt qua các XPath và kiểm tra sự hiển thị của mỗi icon lỗi
+    #     for xpath in error_icons_xpath:
+    #         try:
+    #             # Cuộn đến vị trí của phần tử trước khi kiểm tra
+    #             element = self.driver.find_element(By.XPATH, xpath)
+    #             self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+    #
+    #             # Chờ và kiểm tra icon lỗi tại XPath tương ứng
+    #             error_icon = WebDriverWait(self.driver, 10).until(
+    #                 EC.visibility_of_element_located((By.XPATH, xpath))
+    #             )
+    #
+    #             # Thêm kết quả (True nếu icon lỗi hiển thị, False nếu không)
+    #             error_results.append(error_icon.is_displayed())
+    #         except Exception as e:
+    #             print(f"Không tìm thấy icon lỗi tại XPath {xpath}: {e}")
+    #             # Nếu không tìm thấy icon lỗi, trả về False
+    #             error_results.append(False)
+    #
+    #     # Trả về danh sách kết quả (True hoặc False cho mỗi icon lỗi)
+    #     return error_results
+
+    def error_icon(self):
+        # Danh sách các XPath của các icon lỗi và tên tương ứng
+        error_icons_xpath = [
+            ("/html/body/div[1]/div/div/form/div/div[2]/div/div[2]/div", "Card Number"),  # XPath icon cardnumber
+            ("/html/body/div[1]/div/div/form/div/div[3]/div[1]/div[2]/div", "Expiration Date"),
+            # XPath icon expiration date
+            ("/html/body/div[1]/div/div/form/div/div[3]/div[3]/div[2]/div", "Security Code"),
+            # XPath icon security code
+            ("/html/body/div[1]/div/div/form/div/div[4]/div[2]/div[2]/div[2]/div", "First Name"),
+            # XPath icon firstname
+            ("/html/body/div[1]/div/div/form/div/div[4]/div[2]/div[4]/div[2]/div", "Last Name"),  # XPath icon lastname
+            ("/html/body/div[1]/div/div/form/div/div[4]/div[3]/div[1]/div/div[2]/div", "Street Address"),
+            # XPath icon street address
+            ("/html/body/div[1]/div/div/form/div/div[4]/div[3]/div[3]/div/div[2]/div", "City"),  # XPath icon city
+            ("/html/body/div[1]/div/div/form/div/div[4]/div[3]/div[5]/div/div[2]/div", "Zip Code"),
+            # XPath icon zip code
+            ("/html/body/div[1]/div/div/form/div/div[5]/div/div[2]/div", "Mobile"),  # XPath icon mobile
+            ("/html/body/div[1]/div/div/form/div/div[6]/div/div[2]/div", "Email")  # XPath icon email
+        ]
+
+        # Chuyển vào iframe đầu tiên
+        iframe_1 = self.driver.find_element(By.CLASS_NAME, "component-frame")
+        self.driver.switch_to.frame(iframe_1)
+
+        # Chuyển vào iframe thứ hai
+        iframe_2 = self.driver.find_element(By.CLASS_NAME, "zoid-visible")
+        self.driver.switch_to.frame(iframe_2)
+
+        # Danh sách để lưu các icon lỗi được tìm thấy
+        found_icons = []
+
+        # Duyệt qua các XPath và kiểm tra sự hiển thị của mỗi icon lỗi
+        for xpath, icon_name in error_icons_xpath:
+            try:
+                # Cuộn đến vị trí của phần tử trước khi kiểm tra
+                element = self.driver.find_element(By.XPATH, xpath)
+                self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+
+                # Chờ và kiểm tra icon lỗi tại XPath tương ứng
+                error_icon = WebDriverWait(self.driver, 10).until(
+                    EC.visibility_of_element_located((By.XPATH, xpath))
+                )
+
+                # Nếu icon lỗi hiển thị, thêm tên icon vào danh sách found_icons
+                if error_icon.is_displayed():
+                    found_icons.append(icon_name)
+            except Exception as e:
+                # In lỗi và tiếp tục kiểm tra các icon khác
+                pass
+
+        # In ra các icon lỗi được tìm thấy
+        if found_icons:
+            print(f"Icon lỗi được tìm thấy: {', '.join(found_icons)}")
+        else:
+            print("Không có icon lỗi nào được tìm thấy.")
+
+        # Trả về danh sách các icon lỗi được tìm thấy
+        return found_icons
+
+

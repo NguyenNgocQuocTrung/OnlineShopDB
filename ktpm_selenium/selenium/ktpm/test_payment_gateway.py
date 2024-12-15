@@ -1,9 +1,13 @@
 import time
+
+from selenium.webdriver.common.by import By
+
 from ktpm_selenium.selenium.utils.webdriver_setup import Driver
 from ktpm_selenium.selenium.pages_derection.shopping_cart_page import ShoppingCartPage
 from ktpm_selenium.selenium.pages_derection.check_out import CheckOutPage
 from ktpm_selenium.selenium.ktpm.test_login import TestLogin
 from ktpm_selenium.selenium.pages_derection.home_page import HomePage
+
 
 
 class TestPaymentGateway_Credit_or_Debit(Driver):
@@ -349,9 +353,8 @@ class TestPaymentGateway_Credit_or_Debit(Driver):
                                                   zip_code, phone, email)
         time.sleep(2)
 
-        assert "checkout" in driver.current_url
-        time.sleep(2)
-        driver.quit()
+        error = check_out_page.error_icon()
+        assert error
         time.sleep(5)
 
     def test_payment_gateway_wrongnumber(self, driver):
@@ -385,9 +388,8 @@ class TestPaymentGateway_Credit_or_Debit(Driver):
                                                   zip_code, phone, email)
         time.sleep(2)
 
-        assert "checkout" in driver.current_url
-        time.sleep(2)
-        driver.quit()
+        error = check_out_page.error_icon()
+        assert error
         time.sleep(5)
 
     def test_payment_gateway_wrongzipcode(self, driver):
@@ -421,9 +423,8 @@ class TestPaymentGateway_Credit_or_Debit(Driver):
                                                   zip_code, phone, email)
         time.sleep(2)
 
-        assert "checkout" in driver.current_url
-        time.sleep(2)
-        driver.quit()
+        error = check_out_page.error_icon()
+        assert error
         time.sleep(5)
 
     def test_payment_gateway_blankcity(self, driver):
@@ -457,9 +458,8 @@ class TestPaymentGateway_Credit_or_Debit(Driver):
                                                   zip_code, phone, email)
         time.sleep(2)
 
-        assert "checkout" in driver.current_url
-        time.sleep(2)
-        driver.quit()
+        error = check_out_page.error_icon()
+        assert error
         time.sleep(5)
 
     def test_payment_gateway_blankaddress(self, driver):
@@ -493,9 +493,8 @@ class TestPaymentGateway_Credit_or_Debit(Driver):
                                                   zip_code, phone, email)
         time.sleep(2)
 
-        assert "checkout" in driver.current_url
-        time.sleep(2)
-        driver.quit()
+        error = check_out_page.error_icon()
+        assert error
         time.sleep(5)
 
     def test_payment_gateway_blanklastname(self, driver):
@@ -529,9 +528,8 @@ class TestPaymentGateway_Credit_or_Debit(Driver):
                                                   zip_code, phone, email)
         time.sleep(2)
 
-        assert "checkout" in driver.current_url
-        time.sleep(2)
-        driver.quit()
+        error = check_out_page.error_icon()
+        assert error
         time.sleep(5)
 
     def test_payment_gateway_blankfirstname(self, driver):
@@ -565,9 +563,8 @@ class TestPaymentGateway_Credit_or_Debit(Driver):
                                                   zip_code, phone, email)
         time.sleep(2)
 
-        assert "checkout" in driver.current_url
-        time.sleep(2)
-        driver.quit()
+        error = check_out_page.error_icon()
+        assert error
         time.sleep(5)
 
     def test_payment_gateway_blankcvv(self, driver):
@@ -600,9 +597,8 @@ class TestPaymentGateway_Credit_or_Debit(Driver):
                                                   city,
                                                   zip_code, phone, email)
         time.sleep(2)
-
-        assert "checkout" in driver.current_url
-        driver.quit()
+        error = check_out_page.error_icon()
+        assert error
         time.sleep(5)
 
     def test_payment_gateway_wrongexpirydate(self, driver):
@@ -636,9 +632,8 @@ class TestPaymentGateway_Credit_or_Debit(Driver):
                                                   zip_code, phone, email)
         time.sleep(2)
 
-        assert "checkout" in driver.current_url
-        time.sleep(2)
-        driver.quit()
+        error = check_out_page.error_icon()
+        assert error
         time.sleep(5)
 
     def test_payment_gateway_wrongcardnumber(self, driver):
@@ -672,9 +667,8 @@ class TestPaymentGateway_Credit_or_Debit(Driver):
                                                   zip_code, phone, email)
         time.sleep(2)
 
-        assert "checkout" in driver.current_url
-        time.sleep(2)
-        driver.quit()
+        error = check_out_page.error_icon()
+        assert error
         time.sleep(5)
 
     def test_payment_gateway_blankallfields(self, driver):
@@ -708,10 +702,10 @@ class TestPaymentGateway_Credit_or_Debit(Driver):
                                                   zip_code, phone, email)
         time.sleep(2)
 
-        assert "checkout" in driver.current_url
+        error = check_out_page.error_icon()
+        assert error
 
         time.sleep(5)
-
 
     def test_payment_paypal_error_email(self, driver):
         self.login_and_add_product_to_basket(driver)
