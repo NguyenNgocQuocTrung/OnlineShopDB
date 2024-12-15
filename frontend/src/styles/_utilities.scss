@@ -117,11 +117,29 @@
     align-items: center;
     border: 1px solid $color-lightgrey;
     background: white;
-    border-radius: 3px;
+    border-radius: 10px;
     input{
+        width: 100%;
         margin-bottom: 0;
         border: none;
     }   
+}
+
+.input-wrapper input:hover {
+    border-color: #007bff;
+    /* Light blue border on hover */
+    background-color: #f0f8ff;
+    /* Optional: light background on hover */
+}
+
+/* Focus effect for input (when clicked) */
+.input-wrapper input:focus {
+    border-color: #007bff;
+    /* Light blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    /* Optional: blue shadow on focus */
+    background-color: #ffffff;
+    /* Optional: white background on focus */
 }
 
 .input-label{
@@ -136,4 +154,8 @@
 form span{
     color: rgb(180, 0, 0);
     font-size: 0.8rem;
+}
+
+.input-field{
+    margin-left: 1em;
 }

@@ -41,6 +41,29 @@
     max-width: none;
     }
 }
+.svg-inline--fa{
+    transition: color 0.1s ease, font-size 0.2s ease;
+         &:hover {
+           color: $color-blue;
+            cursor: pointer;
+        }
+}
+
+.product-card {
+    transition: color 0.1s ease, font-size 0.2s ease;
+
+    &:hover {
+        width: 101%;
+        .product-img{
+            transition: color 0.1s ease, font-size 0.2s ease;
+            background-color: lightblue;
+            color: lightblue;
+        }
+        background-color: lightblue;
+        color: lightblue;
+    }
+}
+
 
 .product-img{
     height: 250px;
@@ -104,4 +127,31 @@
     p{
         margin-top: 1rem;
     }
+}
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.pagination button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.pagination button.disabled {
+    background-color: #cccccc;
+    /* Gray color for disabled button */
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-weight: bold;
 }

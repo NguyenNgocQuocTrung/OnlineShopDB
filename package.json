@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "jest-mock-axios": "^4.8.0"
+  }
+}

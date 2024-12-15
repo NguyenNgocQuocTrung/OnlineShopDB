@@ -127,3 +127,30 @@
         display: none;
     }
   }
+/* Apply hover to other text elements if needed */
+    .header-section h1{
+        transition: color 0.1s ease, font-size 0.2s ease;
+
+        &:hover {
+            color: lightblue;
+            font-size: 1.6em;
+        }
+    }
+.header-container ul li a
+{
+    transition: color 0.1s ease, font-size 0.2s ease;
+
+    &:hover {
+        color: lightblue;
+        font-size: 1.05em;
+    }
+}
+
+.header-tools svg {
+    transition: color 0.1s ease, font-size 0.2s ease;
+
+    &:hover {
+        color: lightblue;
+        font-size: 1.3em;
+    }
+}
