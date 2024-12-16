@@ -3,3 +3,8 @@
 .pytest_cache
 /node_modules
 venv
+/ktpm_selenium/__pycache__
+/ktpm_selenium/selenium/ktpm/__pycache__
+/ktpm_selenium/selenium/pages_derection/__pycache__
+/ktpm_selenium/selenium/__pycache__
+/ktpm_selenium/selenium/utils/__pycache__

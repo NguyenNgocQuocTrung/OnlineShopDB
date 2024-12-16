@@ -7,8 +7,8 @@ class FilterElementsPath:
     class FILTER:
         FILTER_BOX = "//*[@id=\"root\"]/div[1]/div[1]/div[1]/a"
         SIZE_BOX = "//*[@id=\"size\"]"
-        MIN_PRICE = "//*[@id=\"min-price\"]"
-        MAX_PRICE = "//*[@id=\"max-price\"]"
+        MIN_PRICE = "//*[@id=\"minPrice\"]"
+        MAX_PRICE = "//*[@id=\"maxPrice\"]"
         PRICE_TEXT = "//*[@id=\"root\"]/div[1]/div[2]/div[1]/div[2]/a/p[2]"
         OPTION = "option"
         VALUE = "value"

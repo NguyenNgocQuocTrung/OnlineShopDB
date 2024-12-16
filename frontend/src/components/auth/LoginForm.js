@@ -28,7 +28,7 @@ function Login() {
 
       if (user) {
         
-        alert("Invalid email or password.");
+        alert("Login successful!");
         // Redirect to the "account" page if login is successful
         navigate("/account");
         

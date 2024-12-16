@@ -1,4 +1,4 @@
-BASE_URL = "https://ktpm.nguyenngocquoctrung.id.vn"
+BASE_URL = "http://localhost:3000/"
 LOGIN_ENDPOINT = "/authentication"
 REGISTER_ENDPOINT = "/authentication"
 ACCOUNT_ENDPOINT = "/account"

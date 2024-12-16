@@ -20,3 +20,8 @@ export const login = createAsyncThunk("user/login", async (loginData) => {
     return userId;
   
   });
+
+export const updateUser = createAsyncThunk("user/update", async ({ userId, user }) => {
+  const updatedUser = await userApi.updateUser(userId, user);
+  return updatedUser;
+});

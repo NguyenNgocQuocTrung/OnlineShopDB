@@ -84,22 +84,27 @@ namespace backend.Controllers
             }
         }
 
-            [HttpPost("login")]
-            public IActionResult Login(UserLoginRequest loginRequest)
+        [HttpPost("login")]
+        public IActionResult Login(UserLoginRequest loginRequest)
+        {
+            var user = _userRepository.GetAll().FirstOrDefault(u => u.Email == loginRequest.Email);
+
+            if (user == null || !user.CheckPassword(loginRequest.Password))
             {
-                var user = _userRepository.GetAll().FirstOrDefault(u => u.Email == loginRequest.Email);
-
-                if (user == null || !user.CheckPassword(loginRequest.Password))
-                {
-                    return Unauthorized("Invalid username or password");
-                }
-
-                var jwtService = new JwtService(_configuration);
-                var token = jwtService.GenerateJwtToken(user);
-
-                return Ok(new { Token = token });
+                return Unauthorized("Invalid username or password");
             }
 
+            var jwtService = new JwtService(_configuration);
+            var token = jwtService.GenerateJwtToken(user);
+
+            return Ok(new
+            {
+                Token = token,
+                UserID = user.UserID // Trả về Id của user
+            });
         }
+
+
+    }
 }
     

@@ -129,39 +129,46 @@ namespace backend.Repositories
         public bool Update(User user)
         {
             string query = @"UPDATE dbo.[USER] 
-                             SET FirstName = @FirstName,
-                             LastName = @LastName,
-                             Email = @Email,
-                             Phone = @Phone,
-                             Password = @Password,
-                             Address = @Address,
-                             City = @City,
-                             PostalCode = @PostalCode
-                             WHERE UserID = @UserID";
+                     SET FirstName = @FirstName,
+                         LastName = @LastName,
+                         Email = @Email,
+                         Phone = @Phone,
+                         Password = @Password,
+                         Address = @Address,
+                         City = @City,
+                         PostalCode = @PostalCode
+                     WHERE UserID = @UserID";
 
-            using (SqlConnection myCon = new SqlConnection(_connectionString))
+            try
             {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                using (SqlConnection myCon = new SqlConnection(_connectionString))
                 {
-                    myCommand.Parameters.AddWithValue("@UserID", user.UserID);
-                    myCommand.Parameters.AddWithValue("@FirstName", user.FirstName);
-                    myCommand.Parameters.AddWithValue("@LastName", user.LastName);
-                    myCommand.Parameters.AddWithValue("@Email", user.Email);
-                    myCommand.Parameters.AddWithValue("@Phone", user.Phone);
-                    myCommand.Parameters.AddWithValue("@Password", user.Password);
-                    myCommand.Parameters.AddWithValue("@Address", user.Address);
-                    myCommand.Parameters.AddWithValue("@City", user.City);
-                    myCommand.Parameters.AddWithValue("@PostalCode", user.PostalCode);
+                    myCon.Open();
+                    using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                    {
+                        // Thêm các tham số với kiểu dữ liệu cụ thể
+                        myCommand.Parameters.Add(new SqlParameter("@UserID", SqlDbType.Int) { Value = user.UserID });
+                        myCommand.Parameters.Add(new SqlParameter("@FirstName", SqlDbType.NVarChar) { Value = user.FirstName });
+                        myCommand.Parameters.Add(new SqlParameter("@LastName", SqlDbType.NVarChar) { Value = user.LastName });
+                        myCommand.Parameters.Add(new SqlParameter("@Email", SqlDbType.NVarChar) { Value = user.Email });
+                        myCommand.Parameters.Add(new SqlParameter("@Phone", SqlDbType.NVarChar) { Value = user.Phone });
+                        myCommand.Parameters.Add(new SqlParameter("@Password", SqlDbType.NVarChar) { Value = user.Password });
+                        myCommand.Parameters.Add(new SqlParameter("@Address", SqlDbType.NVarChar) { Value = user.Address });
+                        myCommand.Parameters.Add(new SqlParameter("@City", SqlDbType.NVarChar) { Value = user.City });
+                        myCommand.Parameters.Add(new SqlParameter("@PostalCode", SqlDbType.NVarChar) { Value = user.PostalCode });
 
-                    int rowsAffected = myCommand.ExecuteNonQuery();
-                    myCon.Close();
-
-                    return rowsAffected > 0; 
-
+                        int rowsAffected = myCommand.ExecuteNonQuery();
+                        return rowsAffected > 0; // Trả về true nếu có hàng bị ảnh hưởng
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating user: {ex.Message}");
+                return false;
+            }
         }
+
 
         public bool Delete(int userId)
         {
